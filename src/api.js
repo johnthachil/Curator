@@ -11,7 +11,7 @@ export async function discoverMovies(pageNo = 2) {
 
 export async function getMovieDetails(movieID) {
   try {
-    const res = await fetch(`https://api.themoviedb.org/3/movie/${movieID}?api_key=e7e23d6add0a8325d12bd9817b4d7bf3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`);
+    const res = await fetch(`https://api.themoviedb.org/3/movie/${movieID}?api_key=e7e23d6add0a8325d12bd9817b4d7bf3&language=en-US&append_to_response=credits`);
     const movie = await res.json();
     return movie;
   } catch (e) {

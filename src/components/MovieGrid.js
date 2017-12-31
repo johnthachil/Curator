@@ -9,7 +9,7 @@ class MovieGrid extends Component {
       <div>
         <Heading>Discover Movies</Heading>
         <MovieGridWrapper>
-          {this.props.movies.map(movie => <Movie movie={movie} key={movie.id} />)}
+          {this.props.movies.slice(0, 18).map(movie => <Movie movie={movie} key={movie.id} />)}
         </MovieGridWrapper>
       </div>
     );

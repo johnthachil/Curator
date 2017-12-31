@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Styled from 'styled-components';
 import Overdrive from 'react-overdrive';
+import Cast from './Cast';
 import { getMovieDetails } from '../api';
 
 const POSTER_PATH = 'https://image.tmdb.org/t/p/w154';
@@ -8,18 +9,23 @@ const BACKDROP_PATH = 'https://image.tmdb.org/t/p/w1280';
 
 class MovieDetails extends Component {
   state = {
-    movie: [],
-    movieGenres: [],
+    movie: {
+      genres: [],
+      credits: {
+        cast: [],
+        crew: [],
+      },
+    },
   };
+
   async componentWillMount() {
     const movie = await getMovieDetails(this.props.match.params.id);
     this.setState({
       movie,
-      movieGenres: movie.genres,
     });
   }
   render() {
-    const { movie, movieGenres } = this.state;
+    const { movie } = this.state;
     return (
       <div>
         <BackDropWrapper>
@@ -34,7 +40,7 @@ class MovieDetails extends Component {
           </Overdrive>
           <MovieInfoWrapper>
             <h1>{movie.original_title}</h1>
-            <p className="genre">{movieGenres.map(genre => genre.name).join(', ')}</p>
+            <p className="genre">{movie.genres.map(genre => genre.name).join(', ')}</p>
             <div className="genral-info">
               <div>
                 <i className="fas fa-calendar-alt" /> {movie.release_date}
@@ -50,6 +56,10 @@ class MovieDetails extends Component {
               </div>
             </div>
             <p>{movie.overview}</p>
+            <h3>Casts</h3>
+            <CastWrapper>
+              {this.state.movie.credits.cast.slice(0, 4).map(cast => <Cast cast={cast} key={cast.id} />)}
+            </CastWrapper>
           </MovieInfoWrapper>
         </ContentWrapper>
       </div>
@@ -111,4 +121,9 @@ const MovieInfoWrapper = Styled.div`
   }
 
 
+`;
+const CastWrapper = Styled.div`
+  display: grid;
+  grid-template-columns:auto auto auto auto;
+  grid-column-gap:20px;
 `;
