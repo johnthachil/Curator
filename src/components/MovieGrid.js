@@ -23,6 +23,7 @@ const MovieGridWrapper = Styled.div`
   display:grid;
   grid-template-columns: repeat(6,2fr);
   grid-row-gap:1rem;
+  grid-column-gap:2rem;
   margin-bottom:50px;
 `;
 

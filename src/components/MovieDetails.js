@@ -3,7 +3,6 @@ import Styled from 'styled-components';
 import Overdrive from 'react-overdrive';
 import { getMovieDetails } from '../api';
 
-
 const POSTER_PATH = 'https://image.tmdb.org/t/p/w154';
 const BACKDROP_PATH = 'https://image.tmdb.org/t/p/w1280';
 

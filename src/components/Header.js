@@ -15,7 +15,7 @@ const Header = () => (
 export default Header;
 
 const Main = Styled.header`
-  background-color:#212227;
+  background-color:#241878;
   padding: 19px 24px 19px 24px;
-  border-bottom:2px solid #141519;
+  border-bottom:10px solid #3C27C5;
 `;

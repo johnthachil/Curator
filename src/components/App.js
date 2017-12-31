@@ -4,6 +4,7 @@ import { discoverMovies } from '../api';
 
 class App extends Component {
   state = {
+    currentPage: 1,
     movies: [],
   };
   async componentWillMount() {
@@ -12,6 +13,14 @@ class App extends Component {
       movies: movies.results,
     });
   }
+  nextPage = async () => {
+    const nextPage = this.state.currentPage + 1;
+    const movies = await discoverMovies(nextPage);
+    this.setState({
+      movies: movies.results,
+      currentPage: nextPage,
+    });
+  };
 
   render() {
     return (
