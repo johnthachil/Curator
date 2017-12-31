@@ -51,14 +51,11 @@ class MovieDetails extends Component {
               <div>
                 <i className="fas fa-clock" /> {movie.runtime} mins
               </div>
-              <div>
-                <i className="fas fa-language" /> {movie.original_language} Language
-              </div>
             </div>
             <p>{movie.overview}</p>
             <h3>Casts</h3>
             <CastWrapper>
-              {this.state.movie.credits.cast.slice(0, 4).map(cast => <Cast cast={cast} key={cast.id} />)}
+              {this.state.movie.credits.cast.slice(0, 3).map(cast => <Cast cast={cast} key={cast.id} />)}
             </CastWrapper>
           </MovieInfoWrapper>
         </ContentWrapper>
@@ -102,7 +99,7 @@ const ContentWrapper = Styled.div`
   max-width:800px;
   margin:0 auto;
   display:grid;
-  grid-template-columns:160px auto;
+  grid-template-columns:auto auto;
   grid-column-gap:20px;
 
 `;
@@ -116,7 +113,7 @@ const MovieInfoWrapper = Styled.div`
   }
   .genral-info{
     display:grid;
-    grid-template-columns:auto auto auto auto;
+    grid-template-columns:auto auto auto;
 
   }
 
