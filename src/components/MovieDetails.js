@@ -65,7 +65,7 @@ const BackDropWrapper = Styled.div`
    overflow:hidden;
    position: relative;
    img{
-     max-width:100%;
+     width:100%;
    }
 `;
 const Overlay = Styled.div`
