@@ -8,6 +8,8 @@ import './index.css';
 import App from './components/App';
 import Header from './components/Header';
 import MovieDetails from './components/MovieDetails';
+import ShowDetails from './components/ShowDetails';
+
 
 const Root = () => (
   <Router>
@@ -15,9 +17,8 @@ const Root = () => (
       <Header />
       <Switch>
         <Route exact path="/" component={App} />
-        <Route exact path="/movies/:id" component={MovieDetails} />
-        <Route exact path="/pages/:id" component={App} />
-
+        <Route path="/movies/:id" component={MovieDetails} />
+        <Route path="/shows/:id" component={ShowDetails} />
       </Switch>
     </div>
   </Router>

@@ -2,5 +2,6 @@ body {
   background-color: #2E1E96;
   color:white;
   font-family: 'Muli', sans-serif;
-  border:10px solid #3C27C5
+  border:10px solid #3C27C5;
+  min-height:100vh;
 }

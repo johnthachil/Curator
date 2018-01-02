@@ -4,6 +4,10 @@ const genres = [
     name: 'Action',
   },
   {
+    id: 10759,
+    name: 'Action & Adventure',
+  },
+  {
     id: 12,
     name: 'Adventure',
   },
@@ -60,8 +64,20 @@ const genres = [
     name: 'Science Fiction',
   },
   {
+    id: 10763,
+    name: 'News',
+  },
+  {
+    id: 10764,
+    name: 'Reality',
+  },
+  {
     id: 10770,
     name: 'TV Movie',
+  },
+  {
+    id: 10765,
+    name: 'Sci-Fi & Fantasy',
   },
   {
     id: 53,
@@ -70,6 +86,18 @@ const genres = [
   {
     id: 10752,
     name: 'War',
+  },
+  {
+    id: 10766,
+    name: 'Soap',
+  },
+  {
+    id: 10767,
+    name: 'Talk',
+  },
+  {
+    id: 10768,
+    name: 'War & Politics',
   },
   {
     id: 37,

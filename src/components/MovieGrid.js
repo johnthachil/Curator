@@ -25,6 +25,7 @@ const MovieGridWrapper = Styled.div`
   grid-row-gap:1rem;
   grid-column-gap:2rem;
   margin-bottom:50px;
+  min-height:800px;
 `;
 
 const Heading = Styled.h1`

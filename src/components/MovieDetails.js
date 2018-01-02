@@ -53,7 +53,7 @@ class MovieDetails extends Component {
               </div>
             </div>
             <p>{movie.overview}</p>
-            <h3>Casts</h3>
+            <h3>CASTS</h3>
             <CastWrapper>
               {this.state.movie.credits.cast.slice(0, 3).map(cast => <Cast cast={cast} key={cast.id} />)}
             </CastWrapper>
@@ -86,8 +86,11 @@ const Overlay = Styled.div`
 
 const ImageWrapper = Styled.div`
   display:inline-block;
+  height:228px;
+  width:154px;
+  background-color:#212227;
+  box-shadow: 0 2px 7px 0 rgba(0,0,0,0.72);
   img{
-    box-shadow: 0 2px 7px 0 rgba(0,0,0,0.72);
     border-radius: 4px;
     max-width:100%;
   }
