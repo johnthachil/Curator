@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { ScaleLoader } from 'halogenium';
+import Styled from 'styled-components';
+
 import MovieGrid from './MovieGrid';
 import ShowGrid from './ShowGrid';
 
@@ -30,11 +33,26 @@ class App extends Component {
   render() {
     return (
       <div>
-        <MovieGrid movies={this.state.movies} />
-        <ShowGrid shows={this.state.shows} />
+        {this.state.movies.length === 0 ? (
+          <SpinnerWrapper><ScaleLoader color="#fff" size="16px" margin="2px" /></SpinnerWrapper>
+        ) : (
+          <MovieGrid movies={this.state.movies} />
+        )}
+        {this.state.shows.length === 0 ? (
+          <div />
+        ) : (
+          <ShowGrid shows={this.state.shows} />
+        )}
       </div>
     );
   }
 }
 
 export default App;
+
+const SpinnerWrapper = Styled.div`
+  width:100%;
+  display:flex;
+  margin:200px auto;
+  justify-content: space-around;
+`;

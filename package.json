@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "halogenium": "^2.2.3",
     "normalize.css": "^7.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
@@ -15,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && firebase deploy",
-    "deploy":"git push origin master && react-scripts build && firebase deploy",
+    "deploy": "git push origin master && react-scripts build && firebase deploy",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
