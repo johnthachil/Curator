@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Styled from 'styled-components';
 import Overdrive from 'react-overdrive';
+import { ScaleLoader } from 'halogenium';
+import { FadeIn } from 'animate-components';
+
 import Cast from './Cast';
 import { getMovieDetails } from '../api';
 
@@ -54,9 +57,19 @@ class MovieDetails extends Component {
             </div>
             <p>{movie.overview}</p>
             <h3>CASTS</h3>
-            <CastWrapper>
-              {this.state.movie.credits.cast.slice(0, 3).map(cast => <Cast cast={cast} key={cast.id} />)}
-            </CastWrapper>
+            {this.state.movie.credits.cast.length === 0 ? (
+              <SpinnerWrapper>
+                <ScaleLoader color="#241878" size="26px" margin="2px" />
+              </SpinnerWrapper>
+            ) : (
+              <FadeIn duration="0.2s" timingFunction="ease-in" as="div">
+                <CastWrapper>
+                  {this.state.movie.credits.cast
+                    .slice(0, 3)
+                    .map(cast => <Cast cast={cast} key={cast.id} />)}
+                </CastWrapper>
+              </FadeIn>
+            )}
           </MovieInfoWrapper>
         </ContentWrapper>
       </div>
@@ -126,4 +139,8 @@ const CastWrapper = Styled.div`
   display: grid;
   grid-template-columns:auto auto auto auto;
   grid-column-gap:20px;
+`;
+const SpinnerWrapper = Styled.div`
+  width:100%;
+  margin:50px auto;
 `;

@@ -35,7 +35,8 @@ const ImageWrapper = Styled.div`
   width:154px;
   background-color:#212227;
   box-shadow: 0 2px 7px 0 rgba(0,0,0,0.72);
-  border-radius: 4px;
+  border-radius: 2px;
+  overflow:hidden;
   img{
     max-width:100%;
   }

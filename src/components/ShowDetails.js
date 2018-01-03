@@ -19,7 +19,6 @@ class ShowDetails extends Component {
   };
 
   async componentWillMount() {
-    window.scrollTo(0, 0);
     const show = await getShowDetails(this.props.match.params.id);
     this.setState({
       show,

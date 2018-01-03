@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { ScaleLoader } from 'halogenium';
 import Styled from 'styled-components';
+import { FadeIn } from 'animate-components';
+import { Link } from 'react-router-dom';
+
 
 import MovieGrid from './MovieGrid';
 import ShowGrid from './ShowGrid';
@@ -14,9 +17,10 @@ class App extends Component {
     shows: [],
   };
   async componentWillMount() {
-    const movies = await discoverMovies();
+    const movies = await discoverMovies(this.state.currentPage);
     const shows = await topRatedTvShows();
     this.setState({
+      currentPage: movies.page,
       movies: movies.results,
       shows: shows.results,
     });
@@ -34,9 +38,11 @@ class App extends Component {
     return (
       <div>
         {this.state.movies.length === 0 ? (
-          <SpinnerWrapper><ScaleLoader color="#fff" size="16px" margin="2px" /></SpinnerWrapper>
+          <SpinnerWrapper><ScaleLoader color="#F71735" size="26px" margin="3px" /></SpinnerWrapper>
         ) : (
-          <MovieGrid movies={this.state.movies} />
+          <FadeIn duration="0.2s" timingFunction="ease-in" as="div">
+            <MovieGrid movies={this.state.movies} />
+          </FadeIn>
         )}
         {this.state.shows.length === 0 ? (
           <div />
