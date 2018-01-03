@@ -21,7 +21,7 @@ export default ShowGrid;
 const ShowGridWrapper = Styled.div`
   padding: 0 20px;
   display:grid;
-  grid-template-columns: repeat(6,2fr);
+  grid-template-columns: repeat( auto-fit, minmax(160px, 1fr) );
   grid-row-gap:1rem;
   grid-column-gap:2rem;
   margin-bottom:50px;
